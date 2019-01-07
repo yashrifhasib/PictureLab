@@ -132,6 +132,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     private void createAndInitPictureFrame()
     {
         pictureFrame = new JFrame(); // create the JFrame
+        pictureFrame.setDefaultCloseOperation(0);
         pictureFrame.setResizable(true);  // allow the user to resize it
         pictureFrame.getContentPane().setLayout(new BorderLayout()); // use border layout
         pictureFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // when close stop
@@ -800,8 +801,12 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
      */
     public static void main( String args[])
     {
-        Picture pix = new Picture("beach.jpg");
-        pix.explore();
+        //Picture pix = new Picture("beach.jpg");
+        //pix.explore();
+        //Picture pixB = new Picture("arch.jpg");
+        //pixB.explore();
+        Picture pixA = new Picture("polarbear.jpg");
+        pixA.explore();
     }
 
 }
