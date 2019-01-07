@@ -99,6 +99,6 @@ public class IntArrayWorkerTester
         testGetTotal();
         testGetTotalNested();
         testGetLargest();
-        //testGetColTotal();
+        testGetColTotal();
     }
 }
