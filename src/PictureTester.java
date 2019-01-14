@@ -130,6 +130,13 @@ public class PictureTester
         water.copy(swan, 300, 0, 0, 60, 0, 50);
         water.explore();
     }
+    
+    public static void testMyCollage() {
+        Picture polarbear = new Picture("polarbear.jpg");
+        polarbear.explore();
+        polarbear.myCollage();
+        polarbear.explore();
+    }
 
     /** Main method for testing.  Every class can have a main
      * method in Java */
@@ -157,6 +164,7 @@ public class PictureTester
         //testMirrorDiagonal();
         //testCollage();
         //testCopy();
+        //testMyCollage();
         //testEdgeDetection();
         //testEdgeDetection2();
         //testChromakey();
