@@ -122,6 +122,14 @@ public class PictureTester
         water.fixUnderwater();
         water.explore();
     }
+    
+    public static void testCopy() {
+        Picture water = new Picture("water.jpg");
+        Picture swan = new Picture("swan.jpg");
+        water.explore();
+        water.copy(swan, 300, 0, 0, 60, 0, 50);
+        water.explore();
+    }
 
     /** Main method for testing.  Every class can have a main
      * method in Java */
@@ -142,9 +150,10 @@ public class PictureTester
         //testMirrorHorizontal();
         //testMirrorHorizontalBotToTop();
         //testMirrorDiagonal();
+        //testCopy();
         //testMirrorTemple();
         //testMirrorArms();
-        testMirrorGull();
+        //testMirrorGull();
         //testMirrorDiagonal();
         //testCollage();
         //testCopy();
