@@ -437,6 +437,45 @@ public class Picture extends SimplePicture
         }
     }
 
+    public void encode(Picture message) {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel[][] messagePixels = message.getPixels2D();
+
+        for (int row = 0; row < pixels.length; row++)
+            for (int col = 0; col < pixels[0].length; col++) {
+                if (pixels[row][col].getRed() % 2 == 1)
+                    pixels[row][col].setRed(pixels[row][col].getRed() - 1);
+                if (messagePixels[row][col].getRed() < 100)
+                    pixels[row][col].setRed(pixels[row][col].getRed() + 1);
+            }
+    }
+
+    public void decode() {
+        Pixel[][] pixels = this.getPixels2D();
+        for (int row = 0; row < pixels.length; row++)
+            for (int col = 0; col < pixels[0].length; col++) {
+                if (pixels[row][col].getRed() % 2 == 1) {
+                    pixels[row][col].setRed(0);
+                    pixels[row][col].setGreen(0);
+                    pixels[row][col].setBlue(0);
+                }
+                else {
+                    pixels[row][col].setRed(255);
+                    pixels[row][col].setGreen(255);
+                    pixels[row][col].setBlue(255);
+                }
+            }
+    }
+
+    public void chromakey(int redVal, int greenVal, int blueVal, Picture overlay) {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel[][] otherPixels = overlay.getPixels2D();
+        for (int row = 0; row < pixels.length; row++)
+            for (int col = 0; col < pixels[0].length; col++) {
+                if (Math.abs(pixels[row][col].getRed() - redVal) < 50 && Math.abs(pixels[row][col].getGreen() - greenVal) < 50 && Math.abs(pixels[row][col].getBlue() - blueVal) < 50)
+                    pixels[row][col].setColor(otherPixels[row][col].getColor());
+            }
+    }
 
     /* Main method for testing - each class in Java can have a main
      * method
